@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wh.lib.dao.productInfoExMapper" >
+  <resultMap id="BaseResultMap" type="com.wh.lib.domain.productInfoEx" >
+    <id column="productid" property="productid" jdbcType="CHAR" />
+    <result column="describeuri" property="describeuri" jdbcType="CHAR" />
+    <result column="imageuri" property="imageuri" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    productid, describeuri, imageuri
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from productinfoex
+    where productid = #{productid,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from productinfoex
+    where productid = #{productid,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wh.lib.domain.productInfoEx" >
+    insert into productinfoex (productid, describeuri, imageuri
+      )
+    values (#{productid,jdbcType=CHAR}, #{describeuri,jdbcType=CHAR}, #{imageuri,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wh.lib.domain.productInfoEx" >
+    insert into productinfoex
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="productid != null" >
+        productid,
+      </if>
+      <if test="describeuri != null" >
+        describeuri,
+      </if>
+      <if test="imageuri != null" >
+        imageuri,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="productid != null" >
+        #{productid,jdbcType=CHAR},
+      </if>
+      <if test="describeuri != null" >
+        #{describeuri,jdbcType=CHAR},
+      </if>
+      <if test="imageuri != null" >
+        #{imageuri,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wh.lib.domain.productInfoEx" >
+    update productinfoex
+    <set >
+      <if test="describeuri != null" >
+        describeuri = #{describeuri,jdbcType=CHAR},
+      </if>
+      <if test="imageuri != null" >
+        imageuri = #{imageuri,jdbcType=CHAR},
+      </if>
+    </set>
+    where productid = #{productid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wh.lib.domain.productInfoEx" >
+    update productinfoex
+    set describeuri = #{describeuri,jdbcType=CHAR},
+      imageuri = #{imageuri,jdbcType=CHAR}
+    where productid = #{productid,jdbcType=CHAR}
+  </update>
+</mapper>

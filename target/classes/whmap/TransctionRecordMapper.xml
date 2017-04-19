@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wh.lib.dao.TransctionRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.wh.lib.domain.TransctionRecord" >
+    <id column="recordid" property="recordid" jdbcType="CHAR" />
+    <result column="productid" property="productid" jdbcType="CHAR" />
+    <result column="productname" property="productname" jdbcType="CHAR" />
+    <result column="productprice" property="productprice" jdbcType="CHAR" />
+    <result column="productnum" property="productnum" jdbcType="INTEGER" />
+    <result column="totalprice" property="totalprice" jdbcType="CHAR" />
+    <result column="offsetmoney" property="offsetmoney" jdbcType="CHAR" />
+    <result column="paymoney" property="paymoney" jdbcType="CHAR" />
+    <result column="remark" property="remark" jdbcType="CHAR" />
+    <result column="orderstate" property="orderstate" jdbcType="CHAR" />
+    <result column="logisticnum" property="logisticnum" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    recordid, productid, productname, productprice, productnum, totalprice, offsetmoney, 
+    paymoney, remark, orderstate, logisticnum
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from transction_record
+    where recordid = #{recordid,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from transction_record
+    where recordid = #{recordid,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wh.lib.domain.TransctionRecord" >
+    insert into transction_record (recordid, productid, productname, 
+      productprice, productnum, totalprice, 
+      offsetmoney, paymoney, remark, 
+      orderstate, logisticnum)
+    values (#{recordid,jdbcType=CHAR}, #{productid,jdbcType=CHAR}, #{productname,jdbcType=CHAR}, 
+      #{productprice,jdbcType=CHAR}, #{productnum,jdbcType=INTEGER}, #{totalprice,jdbcType=CHAR}, 
+      #{offsetmoney,jdbcType=CHAR}, #{paymoney,jdbcType=CHAR}, #{remark,jdbcType=CHAR}, 
+      #{orderstate,jdbcType=CHAR}, #{logisticnum,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wh.lib.domain.TransctionRecord" >
+    insert into transction_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recordid != null" >
+        recordid,
+      </if>
+      <if test="productid != null" >
+        productid,
+      </if>
+      <if test="productname != null" >
+        productname,
+      </if>
+      <if test="productprice != null" >
+        productprice,
+      </if>
+      <if test="productnum != null" >
+        productnum,
+      </if>
+      <if test="totalprice != null" >
+        totalprice,
+      </if>
+      <if test="offsetmoney != null" >
+        offsetmoney,
+      </if>
+      <if test="paymoney != null" >
+        paymoney,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="orderstate != null" >
+        orderstate,
+      </if>
+      <if test="logisticnum != null" >
+        logisticnum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recordid != null" >
+        #{recordid,jdbcType=CHAR},
+      </if>
+      <if test="productid != null" >
+        #{productid,jdbcType=CHAR},
+      </if>
+      <if test="productname != null" >
+        #{productname,jdbcType=CHAR},
+      </if>
+      <if test="productprice != null" >
+        #{productprice,jdbcType=CHAR},
+      </if>
+      <if test="productnum != null" >
+        #{productnum,jdbcType=INTEGER},
+      </if>
+      <if test="totalprice != null" >
+        #{totalprice,jdbcType=CHAR},
+      </if>
+      <if test="offsetmoney != null" >
+        #{offsetmoney,jdbcType=CHAR},
+      </if>
+      <if test="paymoney != null" >
+        #{paymoney,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=CHAR},
+      </if>
+      <if test="orderstate != null" >
+        #{orderstate,jdbcType=CHAR},
+      </if>
+      <if test="logisticnum != null" >
+        #{logisticnum,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wh.lib.domain.TransctionRecord" >
+    update transction_record
+    <set >
+      <if test="productid != null" >
+        productid = #{productid,jdbcType=CHAR},
+      </if>
+      <if test="productname != null" >
+        productname = #{productname,jdbcType=CHAR},
+      </if>
+      <if test="productprice != null" >
+        productprice = #{productprice,jdbcType=CHAR},
+      </if>
+      <if test="productnum != null" >
+        productnum = #{productnum,jdbcType=INTEGER},
+      </if>
+      <if test="totalprice != null" >
+        totalprice = #{totalprice,jdbcType=CHAR},
+      </if>
+      <if test="offsetmoney != null" >
+        offsetmoney = #{offsetmoney,jdbcType=CHAR},
+      </if>
+      <if test="paymoney != null" >
+        paymoney = #{paymoney,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=CHAR},
+      </if>
+      <if test="orderstate != null" >
+        orderstate = #{orderstate,jdbcType=CHAR},
+      </if>
+      <if test="logisticnum != null" >
+        logisticnum = #{logisticnum,jdbcType=CHAR},
+      </if>
+    </set>
+    where recordid = #{recordid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wh.lib.domain.TransctionRecord" >
+    update transction_record
+    set productid = #{productid,jdbcType=CHAR},
+      productname = #{productname,jdbcType=CHAR},
+      productprice = #{productprice,jdbcType=CHAR},
+      productnum = #{productnum,jdbcType=INTEGER},
+      totalprice = #{totalprice,jdbcType=CHAR},
+      offsetmoney = #{offsetmoney,jdbcType=CHAR},
+      paymoney = #{paymoney,jdbcType=CHAR},
+      remark = #{remark,jdbcType=CHAR},
+      orderstate = #{orderstate,jdbcType=CHAR},
+      logisticnum = #{logisticnum,jdbcType=CHAR}
+    where recordid = #{recordid,jdbcType=CHAR}
+  </update>
+</mapper>

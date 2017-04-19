@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wh.lib.dao.TransportInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.wh.lib.domain.TransportInfo" >
+    <id column="transportid" property="transportid" jdbcType="CHAR" />
+    <result column="tpcompany" property="tpcompany" jdbcType="CHAR" />
+    <result column="tpprice" property="tpprice" jdbcType="CHAR" />
+    <result column="remark" property="remark" jdbcType="CHAR" />
+    <result column="address" property="address" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    transportid, tpcompany, tpprice, remark, address
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from transportinfo
+    where transportid = #{transportid,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from transportinfo
+    where transportid = #{transportid,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wh.lib.domain.TransportInfo" >
+    insert into transportinfo (transportid, tpcompany, tpprice, 
+      remark, address)
+    values (#{transportid,jdbcType=CHAR}, #{tpcompany,jdbcType=CHAR}, #{tpprice,jdbcType=CHAR}, 
+      #{remark,jdbcType=CHAR}, #{address,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wh.lib.domain.TransportInfo" >
+    insert into transportinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="transportid != null" >
+        transportid,
+      </if>
+      <if test="tpcompany != null" >
+        tpcompany,
+      </if>
+      <if test="tpprice != null" >
+        tpprice,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="transportid != null" >
+        #{transportid,jdbcType=CHAR},
+      </if>
+      <if test="tpcompany != null" >
+        #{tpcompany,jdbcType=CHAR},
+      </if>
+      <if test="tpprice != null" >
+        #{tpprice,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=CHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wh.lib.domain.TransportInfo" >
+    update transportinfo
+    <set >
+      <if test="tpcompany != null" >
+        tpcompany = #{tpcompany,jdbcType=CHAR},
+      </if>
+      <if test="tpprice != null" >
+        tpprice = #{tpprice,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=CHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=CHAR},
+      </if>
+    </set>
+    where transportid = #{transportid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wh.lib.domain.TransportInfo" >
+    update transportinfo
+    set tpcompany = #{tpcompany,jdbcType=CHAR},
+      tpprice = #{tpprice,jdbcType=CHAR},
+      remark = #{remark,jdbcType=CHAR},
+      address = #{address,jdbcType=CHAR}
+    where transportid = #{transportid,jdbcType=CHAR}
+  </update>
+</mapper>

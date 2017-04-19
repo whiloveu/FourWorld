@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wh.lib.dao.ShopTrolleyMapper" >
+  <resultMap id="BaseResultMap" type="com.wh.lib.domain.ShopTrolley" >
+    <id column="ordernum" property="ordernum" jdbcType="INTEGER" />
+    <result column="productid" property="productid" jdbcType="CHAR" />
+    <result column="saleprice" property="saleprice" jdbcType="CHAR" />
+    <result column="salenum" property="salenum" jdbcType="INTEGER" />
+    <result column="totalprice" property="totalprice" jdbcType="CHAR" />
+    <result column="remark" property="remark" jdbcType="CHAR" />
+    <result column="recodenum" property="recodenum" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ordernum, productid, saleprice, salenum, totalprice, remark, recodenum
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from shoptrolley
+    where ordernum = #{ordernum,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from shoptrolley
+    where ordernum = #{ordernum,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wh.lib.domain.ShopTrolley" >
+    insert into shoptrolley (ordernum, productid, saleprice, 
+      salenum, totalprice, remark, 
+      recodenum)
+    values (#{ordernum,jdbcType=INTEGER}, #{productid,jdbcType=CHAR}, #{saleprice,jdbcType=CHAR}, 
+      #{salenum,jdbcType=INTEGER}, #{totalprice,jdbcType=CHAR}, #{remark,jdbcType=CHAR}, 
+      #{recodenum,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wh.lib.domain.ShopTrolley" >
+    insert into shoptrolley
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ordernum != null" >
+        ordernum,
+      </if>
+      <if test="productid != null" >
+        productid,
+      </if>
+      <if test="saleprice != null" >
+        saleprice,
+      </if>
+      <if test="salenum != null" >
+        salenum,
+      </if>
+      <if test="totalprice != null" >
+        totalprice,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="recodenum != null" >
+        recodenum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ordernum != null" >
+        #{ordernum,jdbcType=INTEGER},
+      </if>
+      <if test="productid != null" >
+        #{productid,jdbcType=CHAR},
+      </if>
+      <if test="saleprice != null" >
+        #{saleprice,jdbcType=CHAR},
+      </if>
+      <if test="salenum != null" >
+        #{salenum,jdbcType=INTEGER},
+      </if>
+      <if test="totalprice != null" >
+        #{totalprice,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=CHAR},
+      </if>
+      <if test="recodenum != null" >
+        #{recodenum,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wh.lib.domain.ShopTrolley" >
+    update shoptrolley
+    <set >
+      <if test="productid != null" >
+        productid = #{productid,jdbcType=CHAR},
+      </if>
+      <if test="saleprice != null" >
+        saleprice = #{saleprice,jdbcType=CHAR},
+      </if>
+      <if test="salenum != null" >
+        salenum = #{salenum,jdbcType=INTEGER},
+      </if>
+      <if test="totalprice != null" >
+        totalprice = #{totalprice,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=CHAR},
+      </if>
+      <if test="recodenum != null" >
+        recodenum = #{recodenum,jdbcType=CHAR},
+      </if>
+    </set>
+    where ordernum = #{ordernum,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wh.lib.domain.ShopTrolley" >
+    update shoptrolley
+    set productid = #{productid,jdbcType=CHAR},
+      saleprice = #{saleprice,jdbcType=CHAR},
+      salenum = #{salenum,jdbcType=INTEGER},
+      totalprice = #{totalprice,jdbcType=CHAR},
+      remark = #{remark,jdbcType=CHAR},
+      recodenum = #{recodenum,jdbcType=CHAR}
+    where ordernum = #{ordernum,jdbcType=INTEGER}
+  </update>
+</mapper>
