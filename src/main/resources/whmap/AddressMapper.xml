@@ -23,6 +23,12 @@
     from address
     where addressid = #{addressid,jdbcType=INTEGER}
   </select>
+  <select id="selectByCustomerId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from address
+    where customerid = #{customerid,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from address
     where addressid = #{addressid,jdbcType=INTEGER}

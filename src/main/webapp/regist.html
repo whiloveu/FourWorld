@@ -15,6 +15,9 @@
 	<link href="css/responsive.css" rel="stylesheet">
 	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 	<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+	<script src="js/jquery.min.js"></script>
+<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="pages/regist/regist.js"></script>
 </head> 
   
 <body class="size-1140">
@@ -156,39 +159,37 @@
 					<hr class="break-small">
 					<p>填写注册信息.</p>
 				</div>
-				<form class="customform" name="contact-us-form" method="post">
 					<div class="margin">
 						<div class="s-12 m-6 l-6">
-							<input type="text" name="name" placeholder="昵称" title="昵称" required />
+							<input id = "name" type="text" name="name" placeholder="昵称" title="昵称" required />
 						</div>
 						<div class="s-12 m-6 l-6">
-							<input type="text" name="email" placeholder="邮箱" title="邮箱" required />
+							<input id = "email" type="text" name="email" placeholder="邮箱" title="邮箱" required />
 						</div>
 					</div>
 					<div class="margin">
 						<div class="s-12 m-6 l-6">
-							<input type="text" name="mobile" placeholder="手机号" title="手机号" required />
+							<input id = "mobile" type="text" name="mobile" placeholder="手机号" title="手机号" required />
 						</div>
 						<div class="s-12 m-6 l-6">
-							<input type="text" name="subject" placeholder="密码" title="密码" />
+							<input id="subject" type="text" name="subject" placeholder="密码" title="密码" />
 						</div>
 					</div>
 					<div class="fullwidth">
-						<textarea name="message" placeholder="密保问题1" rows="2" required></textarea>
+						<textarea id = "question1" name="message" placeholder="密保问题1" rows="2" required></textarea>
 					</div>
 					<div class="fullwidth">
-						<textarea name="message" placeholder="答案1" rows="2" required></textarea>
+						<textarea id = "answer1" name="message" placeholder="答案1" rows="2" required></textarea>
 					</div>
 					<div class="fullwidth">
-						<textarea name="message" placeholder="密保问题2" rows="2" required></textarea>
+						<textarea id = "question2" name="message" placeholder="密保问题2" rows="2" required></textarea>
 					</div>
 					<div class="fullwidth">
-						<textarea name="message" placeholder="答案2" rows="2" required></textarea>
+						<textarea id = "answer2" name="message" placeholder="答案2" rows="2" required></textarea>
 					</div>
 					<div class="fullwidth">
-						<input type="submit" value=" 注  册   ">
+						<input id = "userRegist" type="submit" value=" 注  册   ">
 					</div> 
-				</form>
 			    </div>
 			</div>
 		</div>

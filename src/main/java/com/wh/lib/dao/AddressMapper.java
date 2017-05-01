@@ -10,6 +10,7 @@ public interface AddressMapper {
     int insertSelective(Address record);
 
     Address selectByPrimaryKey(Integer addressid);
+    Address selectByCustomerId(Integer customerid);
 
     int updateByPrimaryKeySelective(Address record);
 
